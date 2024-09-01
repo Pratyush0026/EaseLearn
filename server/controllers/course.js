@@ -6,25 +6,12 @@ import { User } from "../models/User.js";
 import crypto from "crypto";
 import { Payment } from "../models/Payment.js";
 import { Progress } from "../models/Progress.js";
-import Razorpay from "razorpay";
-import dotenv from "dotenv";
-
-
-dotenv.config();
-
-
 
 export const getAllCourses = TryCatch(async (req, res) => {
   const courses = await Courses.find();
   res.json({
     courses,
   });
-});
-
-
-export const instance = new Razorpay({
-  key_id: process.env.Razorpay_Key,
-  key_secret: process.env.Razorpay_Secret,
 });
 
 export const getSingleCourse = TryCatch(async (req, res) => {
